@@ -1,5 +1,6 @@
 package com.marchrich.findmyclass.domain.posts;
 
+import com.marchrich.findmyclass.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import javax.persistence.Id;
 @Getter // Entity클래스에는 절대 setter를 만들지 않음. builder를 사용함
 @NoArgsConstructor // 기본생성자. public Posts(){}와 같은 효과
 @Entity // 테이블과 링크될 클래스라는 뜻. sales_manager테이블이면 salesManager.java 로 파일을 만듬
-public class Posts { // 실제 DB테이블과 매칭된 클래스, Entity 클래스라고도 함. JPA를 사용하면 실제 쿼리를 날리는게 아니라 이 Entity 클래스의 수정을 통해 작업함
+public class Posts extends BaseTimeEntity { // 실제 DB테이블과 매칭된 클래스, Entity 클래스라고도 함. JPA를 사용하면 실제 쿼리를 날리는게 아니라 이 Entity 클래스의 수정을 통해 작업함
 
     @Id // 해당 테이블의 PK
     @GeneratedValue(strategy = GenerationType.IDENTITY) // GeneratedValue : PK의 생성규칙. / GenerationType.IDENTITY : auto_increment
@@ -32,6 +33,11 @@ public class Posts { // 실제 DB테이블과 매칭된 클래스, Entity 클래
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 
 

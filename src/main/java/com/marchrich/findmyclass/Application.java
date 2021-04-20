@@ -2,7 +2,9 @@ package com.marchrich.findmyclass;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableJpaAuditing // JPA Auditing 이노테이션 활성화
 @SpringBootApplication
 public class Application { // 프로젝트의 메인 클래스
 
