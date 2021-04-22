@@ -12,7 +12,7 @@ public class HelloController {
         return "hello";
     }
 
-    @GetMapping("hello/dto")
+    @GetMapping("/hello/dto")
     public HelloResponseDto helloDto(@RequestParam("name") String name, @RequestParam("amount") int amount) {
         // requestParam : 외부에서 api로 넘긴 파라미터를 가져오는 어노테이션. @RequestParam("name") 이란 이름으로 넘긴 파라미터를  String name에 저장한다
         return new HelloResponseDto(name, amount);
