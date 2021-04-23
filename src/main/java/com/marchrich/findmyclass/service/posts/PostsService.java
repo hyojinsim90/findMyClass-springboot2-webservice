@@ -2,12 +2,16 @@ package com.marchrich.findmyclass.service.posts;
 
 import com.marchrich.findmyclass.domain.posts.Posts;
 import com.marchrich.findmyclass.domain.posts.PostsRepository;
+import com.marchrich.findmyclass.web.dto.PostsListResponseDto;
 import com.marchrich.findmyclass.web.dto.PostsResponseDto;
 import com.marchrich.findmyclass.web.dto.PostsSaveRequestDto;
 import com.marchrich.findmyclass.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -37,4 +41,11 @@ public class PostsService {
             return new PostsResponseDto(entity);
         }
 
+        @Transactional(readOnly = true) // readOnly : 트랜잭션 범위는 유지하되, 조회 기능만 남겨두어 조회 속도 개선
+        public List<PostsListResponseDto> findAllDesc() {
+            return postsRepository.findAllDesc().stream()
+                    .map(PostsListResponseDto::new) // = .map(posts -> new PostsListResponseDto(posts))
+                    .collect(Collectors.toList());
+            // postsRepository로 넘어온 Posts의 Stream을 map을 통해 PostsListsResponseDto로 변환 -> List로 반환
+        }
 }

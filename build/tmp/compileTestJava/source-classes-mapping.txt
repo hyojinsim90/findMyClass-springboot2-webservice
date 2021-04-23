@@ -2,11 +2,11 @@ com/marchrich/findmyclass/web/HelloControllerTest.java
  com.marchrich.findmyclass.web.HelloControllerTest
 com/marchrich/findmyclass/web/dto/HelloResponseDtoTest.java
  com.marchrich.findmyclass.web.dto.HelloResponseDtoTest
+com/marchrich/findmyclass/web/IndexControllerTest.java
+ com.marchrich.findmyclass.web.IndexControllerTest
+com/marchrich/findmyclass/ApplicationTests.java
+ com.marchrich.findmyclass.ApplicationTests
 com/marchrich/findmyclass/domain/posts/PostsRepositoryTest.java
  com.marchrich.findmyclass.domain.posts.PostsRepositoryTest
 com/marchrich/findmyclass/web/PostsApiControllerTest.java
  com.marchrich.findmyclass.web.PostsApiControllerTest
-com/marchrich/findmyclass/ApplicationTests.java
- com.marchrich.findmyclass.ApplicationTests
-com/marchrich/findmyclass/web/IndexControllerTest.java
- com.marchrich.findmyclass.web.IndexControllerTest
