@@ -34,6 +34,14 @@ public class PostsService {
         }
         // 더티체킹 : update Transaction이 끝나는 시점에 해당 테이블에 변경분을 반영. update 쿼리문 날릴 필요 없음.
 
+        @Transactional
+        public void delete(Long id){
+            Posts posts = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id =" + id));
+            // 존재하는 Posts인지 확인을 위해 엔티티 조회 후 삭제
+            
+            postsRepository.delete(posts);
+            // 엔티티를 파라미터로 삭제할 수도 있고, deleteById 메소드를 이용하면 id로 삭제할수도있다.
+        }
 
         public PostsResponseDto findById(Long id) {
             Posts entity = postsRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id = " + id));
